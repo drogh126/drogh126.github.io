@@ -1,233 +1,645 @@
-<!-- Generated with Claude -->
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Wendi (Dario) Guo's portfolio in business analytics, strategy, investment research, and operations."
+    />
     <title>Wendi (Dario) Guo | Analytics Portfolio</title>
 
     <style>
-      /* ============================================================
-       BASIC STYLES — students can tweak colors/fonts here
-       ============================================================ */
+      :root {
+        --navy: #172a46;
+        --blue: #3d6f9e;
+        --teal: #287c78;
+        --gold: #c99a45;
+        --gold-soft: #fbf4e6;
+        --ink: #243044;
+        --muted: #667085;
+        --background: #f4f7fb;
+        --surface: #ffffff;
+        --border: #dfe6ef;
+        --shadow: 0 8px 26px rgba(23, 42, 70, 0.08);
+        --shadow-hover: 0 14px 34px rgba(23, 42, 70, 0.15);
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #222;
-        background: #f7f7f7;
-        line-height: 1.5;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(61, 111, 158, 0.12), transparent 34%),
+          var(--background);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
       }
 
       .container {
-        max-width: 900px;
+        width: min(100% - 32px, 980px);
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 56px 0 72px;
       }
 
-      /* ---------- HEADER (photo + name + subheading) ---------- */
       header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 34px;
       }
 
-      /* Empty space for photo — replace with your own <img> if you like */
-      .photo {
-        width: 140px;
-        height: 140px;
+      .initials {
+        width: 126px;
+        height: 126px;
+        margin: 0 auto 20px;
         border-radius: 50%;
-        background: #ddd;
-        border: 2px dashed #aaa;
-        margin: 0 auto 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 13px;
+        object-fit: cover;
+        object-position: center 20%;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: linear-gradient(145deg, var(--navy), var(--blue));
+        border: 5px solid #ffffff;
+        box-shadow: var(--shadow);
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
       }
 
       header h1 {
-        font-size: 28px;
-        margin-bottom: 6px;
-      } /* NAME */
-      header p {
-        font-size: 16px;
-        color: #555;
-      } /* EXPERIENCES */
+        color: var(--navy);
+        font-size: clamp(30px, 5vw, 42px);
+        line-height: 1.15;
+        letter-spacing: -0.7px;
+        margin-bottom: 12px;
+      }
 
-      /* ---------- TABS ---------- */
+      .role-target {
+        display: inline-block;
+        color: var(--navy);
+        background: var(--gold-soft);
+        border: 1px solid #edd9b6;
+        border-radius: 999px;
+        padding: 8px 18px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .tagline {
+        color: var(--muted);
+        font-size: 15px;
+        margin-bottom: 16px;
+      }
+
+      .profile-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .profile-links a {
+        text-decoration: none;
+        color: var(--blue);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: transform 0.18s ease, border-color 0.18s ease;
+      }
+
+      .profile-links a:hover {
+        transform: translateY(-2px);
+        border-color: var(--blue);
+      }
+
       .tabs {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 26px;
       }
 
       .tab-button {
-        padding: 10px 22px;
-        border: 1px solid #ccc;
-        background: #fff;
+        appearance: none;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--muted);
+        padding: 10px 20px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
         cursor: pointer;
-        font-size: 15px;
-        border-radius: 4px;
+        transition: all 0.18s ease;
+      }
+
+      .tab-button:hover {
+        color: var(--navy);
+        border-color: var(--blue);
       }
 
       .tab-button.active {
-        background: #2c3e50;
-        color: #fff;
-        border-color: #2c3e50;
+        color: #ffffff;
+        background: var(--navy);
+        border-color: var(--navy);
       }
 
-      /* ---------- TAB CONTENT ---------- */
       .tab-content {
         display: none;
       }
+
       .tab-content.active {
         display: block;
+        animation: fade-in 0.28s ease;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .panel {
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 30px;
+        box-shadow: var(--shadow);
       }
 
-      /* ---------- PROJECT CARDS (1 x 3 grid) ---------- */
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+      .panel + .panel {
+        margin-top: 18px;
       }
 
-      .card {
-        border: 1px solid #eee;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #fff;
+      .section-label {
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
       }
 
-      /* Empty space for project photo */
-      .card-photo {
-        height: 120px;
-        background: #ddd;
-        border-bottom: 1px dashed #aaa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 12px;
-      }
-
-      .card-text {
-        padding: 14px;
-      }
-      .card-text h3 {
+      .about-lead {
         font-size: 16px;
-        margin-bottom: 6px;
-      }
-      .card-text p {
-        font-size: 14px;
-        color: #555;
+        color: var(--ink);
       }
 
-      /* ---------- MOBILE: stack cards vertically ---------- */
-      @media (max-width: 640px) {
-        .cards {
+      .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .competency {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: #fbfcfe;
+      }
+
+      .competency-number {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: var(--teal);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .competency h3 {
+        color: var(--navy);
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .competency p {
+        color: var(--muted);
+        font-size: 13.5px;
+      }
+
+      .experience-item {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .experience-item:first-child {
+        padding-top: 0;
+      }
+
+      .experience-item:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .experience-heading,
+      .education-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 5px 14px;
+      }
+
+      .experience-heading h3,
+      .education-heading h3 {
+        color: var(--navy);
+        font-size: 17px;
+      }
+
+      .date {
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .role {
+        color: var(--teal);
+        font-size: 14px;
+        font-weight: 700;
+        margin: 5px 0 10px;
+      }
+
+      .experience-item ul,
+      .project-card ul {
+        padding-left: 20px;
+      }
+
+      .experience-item li,
+      .project-card li {
+        margin: 6px 0;
+        font-size: 14px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
+      .project-card {
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .project-banner {
+        min-height: 98px;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        text-align: center;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--navy), var(--blue));
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .project-body {
+        padding: 20px;
+      }
+
+      .project-type {
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 7px;
+      }
+
+      .project-card h3 {
+        color: var(--navy);
+        font-size: 17px;
+        line-height: 1.35;
+        margin-bottom: 10px;
+      }
+
+      .project-card li {
+        color: var(--ink);
+        font-size: 13.5px;
+      }
+
+      .project-note {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 12.5px;
+        font-style: italic;
+      }
+
+      .education-item {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .education-item:first-of-type {
+        padding-top: 0;
+      }
+
+      .education-item:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .degree {
+        margin-top: 4px;
+        color: var(--ink);
+        font-size: 14.5px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 24px;
+      }
+
+      .skills-grid p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .skills-grid strong {
+        color: var(--navy);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 42px;
+        font-size: 13px;
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(100% - 24px, 980px);
+          padding-top: 36px;
+        }
+
+        .panel {
+          padding: 22px 19px;
+        }
+
+        .competency-grid,
+        .skills-grid {
           grid-template-columns: 1fr;
+        }
+
+        .tab-button {
+          flex: 1 1 42%;
+          padding-inline: 12px;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <!-- ============================================================
-         HEADER: photo, name, experiences
-         ============================================================ -->
+    <main class="container">
       <header>
-        <!-- Replace this div with <img src="your-photo.jpg" class="photo"> -->
-        <div class="photo">DG</div>
-
+        <img src="assets/profile.jpg" alt="Wendi (Dario) Guo" class="initials" />
         <h1>Wendi (Dario) Guo</h1>
-        <p>MMA Candidate · Economics & Statistics · Business Analytics · Python</p>
+        <p class="role-target">Business Analytics · Strategy · Investment Research</p>
+        <p class="tagline">
+          MMA Candidate, McGill University · Economics &amp; Statistics · Python &amp; Data Visualization
+        </p>
+        <div class="profile-links">
+          <a href="https://github.com/drogh126" target="_blank" rel="noopener">GitHub Profile</a>
+          <a href="https://github.com/drogh126/drogh126.github.io" target="_blank" rel="noopener">Portfolio Repository</a>
+        </div>
       </header>
 
-      <!-- ============================================================
-         TABS
-         ============================================================ -->
-      <div class="tabs">
-        <button class="tab-button active" onclick="showTab('about')">
-          About Me
-        </button>
-        <button class="tab-button" onclick="showTab('projects')">
-          Projects
-        </button>
-      </div>
+      <nav class="tabs" aria-label="Portfolio sections">
+        <button class="tab-button active" type="button" onclick="showTab(event, 'about')">About Me</button>
+        <button class="tab-button" type="button" onclick="showTab(event, 'experience')">Experience</button>
+        <button class="tab-button" type="button" onclick="showTab(event, 'projects')">Projects</button>
+        <button class="tab-button" type="button" onclick="showTab(event, 'education')">Education</button>
+      </nav>
 
-      <!-- ---------- TAB 1: ABOUT ME ---------- -->
-      <div id="about" class="tab-content active">
+      <section id="about" class="tab-content active">
         <div class="panel">
-          <p>
-                        I am an MMA candidate with a Bachelor of Arts in Economics and Statistics from the University of Toronto. My experience includes private equity research at Ever Young Capital, operations management at Xin Chang Aquarium Co., Ltd., and student leadership as Director of Activities for the Chinese Students and Scholars Association at U of T. I am developing skills in Python, data analysis, and data visualization, and I aim to pursue roles where I can combine analytical thinking with business strategy and decision-making.
+          <div class="section-label">Profile</div>
+          <p class="about-lead">
+            I am an MMA candidate at McGill University with an undergraduate background in Economics and
+            Statistics from the University of Toronto. My experience spans private equity research,
+            operations management, and student leadership. I am interested in using data analysis to support
+            investment evaluation, business strategy, and operational decision-making.
           </p>
+
+          <div class="competency-grid">
+            <article class="competency">
+              <div class="competency-number">1</div>
+              <div>
+                <h3>Business &amp; Market Research</h3>
+                <p>Commercial due diligence, competitor analysis, customer research, and evidence synthesis.</p>
+              </div>
+            </article>
+            <article class="competency">
+              <div class="competency-number">2</div>
+              <div>
+                <h3>Data Analytics</h3>
+                <p>Python, Pandas, Matplotlib, data cleaning, numerical analysis, and visualization.</p>
+              </div>
+            </article>
+            <article class="competency">
+              <div class="competency-number">3</div>
+              <div>
+                <h3>Operations Improvement</h3>
+                <p>Logistics coordination, process tracking, workflow optimization, and performance improvement.</p>
+              </div>
+            </article>
+            <article class="competency">
+              <div class="competency-number">4</div>
+              <div>
+                <h3>Leadership &amp; Communication</h3>
+                <p>Team coordination, event management, stakeholder communication, and English-Mandarin bilingualism.</p>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- ---------- TAB 2: PROJECTS ---------- -->
-      <div id="projects" class="tab-content">
-        <div class="cards">
-          <!-- CARD 1 -->
-          <div class="card">
-            <div class="card-photo">Python Basics</div>
-            <div class="card-text">
-              <h3>Python Fundamentals</h3>
-              <p>Practiced variables, conditional statements, loops, lists, and numerical calculations in Python.</p>
+      <section id="experience" class="tab-content">
+        <div class="panel">
+          <div class="section-label">Professional &amp; Leadership Experience</div>
+
+          <article class="experience-item">
+            <div class="experience-heading">
+              <h3>Ever Young Capital · Shenzhen, China</h3>
+              <span class="date">Jun 2024 – Aug 2024</span>
             </div>
-          </div>
+            <div class="role">Consulting Analyst Intern, Private Equity</div>
+            <ul>
+              <li>Conducted market, competitive, and customer research across three industries.</li>
+              <li>Reviewed and synthesized evidence from more than 50 primary and secondary sources.</li>
+              <li>Supported commercial due diligence, financial modeling, and investment evaluation.</li>
+              <li>Prepared analytical findings and research materials for investment decision-making.</li>
+            </ul>
+          </article>
 
-          <!-- CARD 2 -->
-          <div class="card">
-            <div class="card-photo">Data &amp; Files</div>
-            <div class="card-text">
-              <h3>Data Structures &amp; File Processing</h3>
-              <p>Used functions, lists, dictionaries, classes, text files, JSON, and exception handling to solve data tasks.</p>
+          <article class="experience-item">
+            <div class="experience-heading">
+              <h3>Xin Chang Aquarium Co., Ltd. · Foshan, China</h3>
+              <span class="date">May 2023 – Aug 2023</span>
             </div>
-          </div>
+            <div class="role">Operations Management Intern</div>
+            <ul>
+              <li>Coordinated logistics activities across suppliers, distributors, and internal teams.</li>
+              <li>Supported process improvements that reduced delivery lead time by 12%.</li>
+              <li>Maintained relationships with overseas clients and supported cross-border communication.</li>
+              <li>Improved operational tracking processes to support workflow and cost control.</li>
+            </ul>
+          </article>
 
-          <!-- CARD 3 -->
-          <div class="card">
-            <div class="card-photo">Data Visualization</div>
-            <div class="card-text">
+          <article class="experience-item">
+            <div class="experience-heading">
+              <h3>Chinese Students and Scholars Association at U of T · Toronto, Canada</h3>
+              <span class="date">Aug 2022 – Aug 2023</span>
+            </div>
+            <div class="role">Director of Activities</div>
+            <ul>
+              <li>Led a six-person marketing team and helped increase event attendance by 30%.</li>
+              <li>Organized more than 15 student events across planning, promotion, and logistics.</li>
+              <li>Supported more than 10 major events reaching over 500 participants.</li>
+              <li>Coordinated communication and execution across multiple student teams.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="tab-content">
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-banner">Investment Research</div>
+            <div class="project-body">
+              <div class="project-type">Professional Case Study · 2024</div>
+              <h3>Market Research &amp; Commercial Due Diligence</h3>
+              <ul>
+                <li>Examined industry structure, competitors, and customer behavior across three industries.</li>
+                <li>Synthesized evidence from more than 50 research sources.</li>
+                <li>Supported investment evaluation through research and financial analysis.</li>
+              </ul>
+              <p class="project-note">Confidential company materials are not published.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-banner">Operations Analytics</div>
+            <div class="project-body">
+              <div class="project-type">Professional Case Study · 2023</div>
+              <h3>Supply Chain &amp; Process Improvement</h3>
+              <ul>
+                <li>Reviewed supplier, distributor, and logistics workflows.</li>
+                <li>Improved tracking and coordination across operational activities.</li>
+                <li>Contributed to a 12% reduction in delivery lead time.</li>
+              </ul>
+              <p class="project-note">Presented as a non-confidential summary of internship work.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-banner">Python Data Visualization</div>
+            <div class="project-body">
+              <div class="project-type">Academic Project · 2026</div>
               <h3>Iris Data Analysis &amp; Visualization</h3>
-              <p>Used Pandas and Matplotlib to explore the Iris dataset, filter species, calculate features, and visualize petal measurements.</p>
+              <ul>
+                <li>Used Pandas and Matplotlib to analyze 150 flower observations.</li>
+                <li>Compared petal measurements across three Iris species.</li>
+                <li>Created static and animated visualizations to communicate species-level differences.</li>
+              </ul>
+              <p class="project-note">Coursework summary; graded solutions are not publicly posted.</p>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" class="tab-content">
+        <div class="panel">
+          <div class="section-label">Education</div>
+
+          <article class="education-item">
+            <div class="education-heading">
+              <h3>McGill University · Desautels Faculty of Management</h3>
+              <span class="date">Class of 2027</span>
+            </div>
+            <p class="degree">Master of Management in Analytics Candidate</p>
+          </article>
+
+          <article class="education-item">
+            <div class="education-heading">
+              <h3>University of Toronto</h3>
+              <span class="date">Graduated May 2025</span>
+            </div>
+            <p class="degree">Bachelor of Arts · Majors in Economics and Statistics</p>
+          </article>
+        </div>
+
+        <div class="panel">
+          <div class="section-label">Skills &amp; Interests</div>
+          <div class="skills-grid">
+            <p><strong>Analytics:</strong> Python, Pandas, Matplotlib, data analysis, and visualization</p>
+            <p><strong>Business:</strong> Market research, commercial due diligence, and operations</p>
+            <p><strong>Languages:</strong> English and Mandarin</p>
+            <p><strong>Tools &amp; Interests:</strong> Microsoft Office, hiking, and golf</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- ============================================================
-       SIMPLE TAB SWITCHING SCRIPT
-       ============================================================ -->
+      <footer>
+        &#169; 2026 Wendi (Dario) Guo · Built with HTML, CSS, and JavaScript · Hosted on GitHub Pages
+      </footer>
+    </main>
+
     <script>
-      function showTab(id) {
-        // hide all tab contents
-        document.querySelectorAll(".tab-content").forEach(function (el) {
-          el.classList.remove("active");
+      function showTab(event, id) {
+        document.querySelectorAll(".tab-content").forEach(function (section) {
+          section.classList.remove("active");
         });
-        // remove active state from all buttons
-        document.querySelectorAll(".tab-button").forEach(function (btn) {
-          btn.classList.remove("active");
+
+        document.querySelectorAll(".tab-button").forEach(function (button) {
+          button.classList.remove("active");
         });
-        // show the selected tab + highlight the clicked button
+
         document.getElementById(id).classList.add("active");
-        event.target.classList.add("active");
+        event.currentTarget.classList.add("active");
       }
     </script>
   </body>
